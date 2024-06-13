@@ -1,0 +1,31 @@
+<div class="bus-search-container">
+    <div class="logout">
+      <button (click)="logout()">Logout</button>
+    </div>
+    <form class="bus-search-form" (ngSubmit)="onSubmit()">
+      <h2>Search Buses</h2>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" [(ngModel)]="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="from">From:</label>
+        <input type="text" id="from" [(ngModel)]="from" name="from" required>
+      </div>
+      <div class="form-group">
+        <label for="to">To:</label>
+        <input type="text" id="to" [(ngModel)]="to" name="to" required>
+      </div>
+      <button type="submit">Search Buses</button>
+    </form>
+  
+    <div class="bus-results" *ngIf="buses.length > 0">
+      <h2>Available Buses</h2>
+      <ul>
+        <li *ngFor="let bus of buses">
+          {{ bus.details }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
